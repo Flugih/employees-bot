@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: ./bot
+      dockerfile: Dockerfile_bot
+    volumes:
+      - .:/app
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - my_app_network
+
+  db:
+    image: postgres:latest
+    build:
+      context: ./db
+      dockerfile: Dockerfile_database
+    environment:
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "password"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - my_app_network
+
+volumes:
+  postgres_data:
+
+networks:
+  my_app_network:
+    driver: bridge

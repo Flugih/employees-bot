@@ -1,0 +1,31 @@
+[project]
+name = "bot"
+version = "0.1"
+description = ""
+authors = [
+    {name = "Flugih",email = "mail"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "apscheduler (==3.11.0)",
+    "pyaes (==1.6.1)",
+    "pyrogram (==2.0.106)",
+    "pysocks (==1.7.1)",
+    "python-dotenv (==1.0.1)",
+    "tzdata (==2025.1)",
+    "tzlocal (==5.3)",
+    "sqlalchemy (>=2.0.38,<3.0.0)",
+    "psycopg2-binary (>=2.9.10,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+
+[tool.poetry]
+package-mode = false
